@@ -30,6 +30,7 @@ alias 'mn-compile-js'='~/renga/mansion-note/webapp/bin/javascript.sh'
 alias 'mn-compile-css'='~/renga/mansion-note/webapp/bin/css.sh'
 alias 'mn-restart'='~/renga/mansion-note/env/vagrant/bin/restart-webapp.sh'
 alias 'mn-stop-webapp'='docker stack rm wa'
+alias 'mn-webapp-update'='(docker stack rm wa; ~/renga/bin/gradle.sh :mansion-note:mansion-note-webapp:buildDist; docker stack deploy --prune -c ~/renga/mansion-note/env/docker/compose/webapp.yml wa;)'
 # -----------------------------------------
 source ~/.git-prompt.sh
 PS1='♨️  \[\e[0;33m\]\t(VM)\[\e[0;0m\] \[\e[0;32m\]\w\[\033[00m\]\[\e[0;31m\]$(__git_ps1 " (%s)")\[\033[00m\]\$'
